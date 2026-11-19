@@ -15,7 +15,7 @@
      }
 
      $raw = file_get_contents('php://input');
-     $expected = 'sha256=' . has_hmac('sha256', $raw, $appSecret);
+     $expected = 'sha256=' . hash_hmac('sha256', $raw, $appSecret);
 
      if (!hash_equals($expected, $_SERVER['HTTP_X_HUB_SIGNATURE_256'] ?? '')) {
           http_response_code(401);
