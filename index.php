@@ -5,7 +5,7 @@
 
      if ($_SERVER['REQUEST_METHOD'] === 'GET') {
           // PHP returns "hub.mode" into "hub_mode"
-          if (($_GET[''hub_mode] ?? '') === 'subscribe' && hash_equals($verifyToken, $_GET['hub_verify_token'] ?? '')) {
+          if (($_GET['hub_mode'] ?? '') === 'subscribe' && hash_equals($verifyToken, $_GET['hub_verify_token'] ?? '')) {
                echo $_GET['hub_challenge'] ?? '';
                exit;
           }
