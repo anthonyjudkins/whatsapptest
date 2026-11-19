@@ -22,6 +22,6 @@
           exit;
      }
 
-     error_log('WA:' . $raw);
+     file_put_contents('php://stderr', date('c') . ' ' . $raw . PHP_EOL);
      http_response_code(200);
      exit;
